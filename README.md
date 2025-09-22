@@ -1,6 +1,7 @@
 # cd ProjectName
 # npm i  --- to install depencendy
 # npx react-native start
+# split the terminal into both 
 # npx react-native run-android (BUT MAKE SURE THE EMULATOR ANDROID IS RUNNING)
 
 
