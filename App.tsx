@@ -1,16 +1,6 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { StatusBar, StyleSheet, Text, useColorScheme, View, ScrollView } from 'react-native';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -23,22 +13,38 @@ function App() {
   );
 }
 
+// MyText component remains the same
+function MyText() {
+  return (
+    <Text style={styles.myText}>Slog Solutions</Text>
+  );
+}
+
+// --- Main change is here ---
 function AppContent() {
   const safeAreaInsets = useSafeAreaInsets();
 
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <MyText />
+      
+     
+    </ScrollView>
   );
 }
 
+// Styles
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  scrollContainer: {
+    flexGrow: 1,       // ensures ScrollView expands to full height
+    justifyContent: 'flex-start',
+    padding: 16,
+  },
+  myText: {
+    fontSize: 20,
+    color: 'black',
+    textAlign: 'center',
+    marginTop: 50,
   },
 });
 
